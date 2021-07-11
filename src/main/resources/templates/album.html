@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/album.css}">
+    <title>Albums</title>
+</head>
+<body>
+<a href="./">Back to HomePage</a>
+<h1>Albums Collection</h1>
+<div th:each="album : ${albums}" class="container">
+    <div calss="card">
+        <img th:src=${album.imageUrl} th:alt="${album.title}"/>
+        <div class="data">
+            <p th:text=" 'Album title : ' + ${album.title}"></p>
+            <p th:text=" 'artist : ' + ${album.artist}"></p>
+            <p th:text=" 'song Count : ' + ${album.songCount}"></p>
+            <p th:text=" 'length : ' + ${album.length}"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
