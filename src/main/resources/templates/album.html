@@ -8,6 +8,26 @@
 <body>
 <a href="./">Back to HomePage</a>
 <h1>Albums Collection</h1>
+
+
+<section id="addAlbum" class="hide">
+    <form th:action="@{/albums}" method="POST">
+        <label>Title:</label>
+        <input type="text" name="title" placeholder="" required />
+        <label>Artist:</label>
+        <input type="text" name="artist"  placeholder="" required />
+        <label>Song Count:</label>
+        <input type="text" name="songCount"  placeholder="" required />
+        <label>Length:</label>
+        <input type="text" name="length"  placeholder="" required />
+        <label>Image URL:</label>
+        <input type="text" name="imageUrl"  placeholder="" required />
+        <input type="submit" name="submit" class="btn btnSubmit">
+    </form>
+</section>
+
+
+
 <div th:each="album : ${albums}" class="container">
     <div calss="card">
         <img th:src=${album.imageUrl} th:alt="${album.title}"/>
