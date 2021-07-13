@@ -1,11 +1,12 @@
-package com.example.songr;
+package com.example.songr.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@JsonIgnoreProperties(value = { "song" })
 public class Album{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +26,13 @@ public class Album{
     }
 
     public Album() {
+    }
+
+    @OneToMany
+    List<Song> song;
+
+    public void setSong(List<Song> song) {
+        this.song = song;
     }
 
     public long getId() {
