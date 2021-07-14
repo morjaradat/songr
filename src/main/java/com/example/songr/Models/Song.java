@@ -12,18 +12,22 @@ public class Song {
     private int length ;
     private int trackNumber;
 
-    public Song(String title, int length,int trackNumber) {
+    @ManyToOne()
+    @JoinColumn(name="Album_id")
+    private Album album;
+
+    public Song(String title, int length,int trackNumber,Album album) {
         this.title = title;
         this.length = length;
         this.trackNumber = trackNumber;
+        this.album=album;
     }
 
     public Song() {
     }
 
-    @ManyToOne()
-    @JoinColumn(name="Album_id")
-    private Album album;
+
+
 
     public void setAlbum(Album album) {
         this.album = album;

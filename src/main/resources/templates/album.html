@@ -36,7 +36,12 @@
             <p th:text=" 'artist : ' + ${album.artist}"></p>
             <p th:text=" 'song Count : ' + ${album.songCount}"></p>
             <p th:text=" 'length : ' + ${album.length}"></p>
-            <a href="./albums/{id}/song">Hello</a>
+            <a th:href="'song/'+ ${album.id}">Add New Song</a>
+<!--            <ol>-->
+<!--                <li th:each="song: ${album.songs}">-->
+<!--                    <p th:text="${song.title} + ': ' + ${song.length} + ' seconds'"></p>-->
+<!--                </li>-->
+<!--            </ol>-->
         </div>
     </div>
 </div>

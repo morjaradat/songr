@@ -6,16 +6,31 @@
 </head>
 <body>
 <h1>Song</h1>
+
+<h3 th:text="${id}"></h3>
+
 <section id="addAlbum" class="hide">
-  <form th:action="@{/albums/song}" method="POST">
+  <form th:action="@{/addSong}" method="POST">
+      <input type="text" name="id" th:value="${id}" required readonly>
     <label>Title:</label>
     <input type="text" name="title" placeholder="" required />
     <label>Length:</label>
     <input type="number" name="length"  placeholder="" required />
+      <label>trackNumber:</label>
     <input type="number" name="trackNumber"  placeholder="" required />
     <input type="submit" name="submit" class="btn btnSubmit">
   </form>
 </section>
+
+
+<!--<div th:each="song : ${songs}" class="container">-->
+<!--        <div class="data">-->
+<!--            <p th:text=" 'song title : ' + ${song.title}"></p>-->
+<!--            <p th:text=" 'length : ' + ${song.length}"></p>-->
+<!--            <p th:text=" 'song trackNumber : ' + ${song.trackNumber}"></p>-->
+<!--        </div>-->
+
+<!--</div>-->
 
 </body>
 </html>

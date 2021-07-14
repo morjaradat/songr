@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -43,18 +44,23 @@ public class AlbumController {
         return new RedirectView("/albums");
     }
 
-    @GetMapping("/albums/{id}/song")
-    public String song(@PathVariable String id , Model model) {
+    @GetMapping("song/{id}")
+    public String song(@PathVariable Long id ,Model model) {
         List<Song> songs = songRepository.findAll();
         System.out.println(id);
-        model.addAttribute("Songs", songs);
+        model.addAttribute("songs", songs);
+        model.addAttribute("id", id);
         return "Song";
     }
-    @PostMapping("/albums/song")
-    public ResponseEntity<Song> addNewSong(String title , int length,int trackNumber){
-        Song song = new Song(title,length,trackNumber);
-        Song savedSong = songRepository.save(song);
+
+
+    @PostMapping("/addSong")
+    public RedirectView addNewSong(String title , int length,int trackNumber , String id){
+        System.out.println(title+""+length+""+trackNumber+""+id);
+        Long albumId= Long.parseLong(id);
+        List<Album> songAlbum = albumRepository.findAllById(Collections.singleton(albumId));
+        Song song = new Song(title,length,trackNumber,songAlbum.get(0));
         songRepository.save(song);
-      return   new ResponseEntity<>(savedSong, HttpStatus.CREATED);
+        return new RedirectView("/song/"+albumId);
     }
 }

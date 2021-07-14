@@ -28,11 +28,11 @@ public class Album{
     public Album() {
     }
 
-    @OneToMany
+    @OneToMany(mappedBy = "album")
     List<Song> song;
 
-    public void setSong(List<Song> song) {
-        this.song = song;
+    public List<Song> getSong() {
+        return song;
     }
 
     public long getId() {
