@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Song</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a th:href=@{/}>HomePage</a></li>
+            <li><a th:href=@{/albums}>Albums</a></li>
+            <li><a th:href=@{/allsong}>SongList</a></li>
+            <li><a th:href=@{/hello}>Hello</a></li>
+            <li><a th:href=@{/capitalize/default}>Capitalize</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h1>Song</h1>
+    <section id="addAlbum" class="hide">
+        <form th:action="@{/addSong}" method="POST">
+            <input type="text" name="id" th:value="${id}" required readonly hidden/>
+            <label>Title:</label>
+            <input type="text" name="title" placeholder="" required />
+            <label>Length:</label>
+            <input type="number" name="length"  placeholder="" required />
+            <label>trackNumber:</label>
+            <input type="number" name="trackNumber"  placeholder="" required />
+            <input type="submit" value="submit" class="btn btnSubmit">
+        </form>
+    </section>
+
+    <div th:each="song : ${songList}">
+        <h3 th:text="'song Title : '  + ${song.title}"></h3>
+        <p th:text="'song length : ' + ${song.length} + ' second'"></p>
+        <p th:text="'song trackNumber : ' + ${song.trackNumber}"></p>
+        <br/>
+        <hr/>
+    </div>
+</main>
+
+</body>
+</html>

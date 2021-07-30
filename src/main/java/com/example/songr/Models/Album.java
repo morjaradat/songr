@@ -13,11 +13,11 @@ public class Album{
     private long id;
     private String title;
     private String artist;
-    private String songCount;
-    private String length;
+    private int songCount;
+    private int length;
     private String imageUrl ;
 
-    public Album(String title, String artist, String songCount, String length, String imageUrl) {
+    public Album(String title, String artist, int songCount, int length, String imageUrl) {
         this.title = title;
         this.artist = artist;
         this.songCount = songCount;
@@ -47,11 +47,11 @@ public class Album{
         this.artist = artist;
     }
 
-    public void setSongCount(String songCount) {
+    public void setSongCount(int songCount) {
         this.songCount = songCount;
     }
 
-    public void setLength(String length) {
+    public void setLength(int length) {
         this.length = length;
     }
 
@@ -67,11 +67,11 @@ public class Album{
         return artist;
     }
 
-    public String getSongCount() {
+    public int getSongCount() {
         return songCount;
     }
 
-    public String getLength() {
+    public int getLength() {
         return length;
     }
 

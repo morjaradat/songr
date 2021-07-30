@@ -16,18 +16,15 @@ public class Song {
     @JoinColumn(name="Album_id")
     private Album album;
 
-    public Song(String title, int length,int trackNumber,Album album) {
+    public Song(String title, int length,int trackNumber ,Album album) {
         this.title = title;
         this.length = length;
         this.trackNumber = trackNumber;
-        this.album=album;
+        this.album = album;
     }
 
     public Song() {
     }
-
-
-
 
     public void setAlbum(Album album) {
         this.album = album;
