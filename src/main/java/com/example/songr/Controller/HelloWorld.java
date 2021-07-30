@@ -13,7 +13,7 @@ public class HelloWorld {
 @Autowired
     @GetMapping("/")
     public String helloWorld() {
-        return "HomePage";
+        return "homePage";
     }
 
     @GetMapping("/hello")

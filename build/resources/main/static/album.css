@@ -37,17 +37,17 @@ max-width: 60%;
 position:relative;
 
 }
-a {
-    background-color: #ff000091;
-    color: white;
-    padding: 1em 1.5em;
-    text-decoration: none;
-    text-transform: uppercase;
-    border-radius: 30px;
-    position: absolute;
-        left: 6%;
-}
-a:hover{
-    background-color: #0000008a;
-    color: #ffffff;
-}
+/*a {*/
+/*    background-color: #ff000091;*/
+/*    color: white;*/
+/*    padding: 1em 1.5em;*/
+/*    text-decoration: none;*/
+/*    text-transform: uppercase;*/
+/*    border-radius: 30px;*/
+/*    position: absolute;*/
+/*        left: 6%;*/
+/*}*/
+/*a:hover{*/
+/*    background-color: #0000008a;*/
+/*    color: #ffffff;*/
+/*}*/

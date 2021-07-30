@@ -2,48 +2,58 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/style.css}">
     <link rel="stylesheet" th:href="@{/album.css}">
     <title>Albums</title>
 </head>
 <body>
-<a href="./">Back to HomePage</a>
-<h1>Albums Collection</h1>
+<header>
+    <nav>
+        <ul>
+            <li><a th:href=@{/}>HomePage</a></li>
+            <li><a th:href=@{/albums}>Albums</a></li>
+            <li><a th:href=@{/allsong}>SongList</a></li>
+            <li><a th:href=@{/hello}>Hello</a></li>
+            <li><a th:href=@{/capitalize/default}>Capitalize</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h1>Albums Collection</h1>
 
+    <section id="addAlbum" class="hide">
+        <form th:action="@{/albums}" method="POST">
+            <label>Title:</label>
+            <input type="text" name="title" placeholder="" required />
 
-<section id="addAlbum" class="hide">
-    <form th:action="@{/albums}" method="POST">
-        <label>Title:</label>
-        <input type="text" name="title" placeholder="" required />
-        <label>Artist:</label>
-        <input type="text" name="artist"  placeholder="" required />
-        <label>Song Count:</label>
-        <input type="text" name="songCount"  placeholder="" required />
-        <label>Length:</label>
-        <input type="text" name="length"  placeholder="" required />
-        <label>Image URL:</label>
-        <input type="text" name="imageUrl"  placeholder="" required />
-        <input type="submit" name="submit" class="btn btnSubmit">
-    </form>
-</section>
+            <label>Artist:</label>
+            <input type="text" name="artist"  placeholder="" required />
 
+            <label>Song Count:</label>
+            <input type="number" name="songCount"  placeholder="" required />
 
+            <label>Length:</label>
+            <input type="number" name="length"  placeholder="" required />
 
-<div th:each="album : ${albums}" class="container">
-    <div calss="card">
-        <img th:src=${album.imageUrl} th:alt="${album.title}"/>
-        <div class="data">
-            <p th:text=" 'Album title : ' + ${album.title}"></p>
-            <p th:text=" 'artist : ' + ${album.artist}"></p>
-            <p th:text=" 'song Count : ' + ${album.songCount}"></p>
-            <p th:text=" 'length : ' + ${album.length}"></p>
-            <a th:href="'song/'+ ${album.id}">Add New Song</a>
-<!--            <ol>-->
-<!--                <li th:each="song: ${album.songs}">-->
-<!--                    <p th:text="${song.title} + ': ' + ${song.length} + ' seconds'"></p>-->
-<!--                </li>-->
-<!--            </ol>-->
+            <label>Image URL:</label>
+            <input type="text" name="imageUrl"  placeholder="" required />
+
+            <input type="submit" name="submit" class="btn btnSubmit">
+        </form>
+    </section>
+
+    <div th:each="album : ${albums}" class="container">
+        <div calss="card">
+            <img th:src=${album.imageUrl} th:alt="${album.title}"/>
+            <div class="data">
+                <p th:text=" 'Album title : ' + ${album.title}"></p>
+                <p th:text=" 'artist : ' + ${album.artist}"></p>
+                <p th:text=" 'song Count : ' + ${album.songCount}"></p>
+                <p th:text=" 'length : ' + ${album.length}"></p>
+                <a th:href="'song/'+ ${album.id}">Review Songs</a>
+            </div>
         </div>
     </div>
-</div>
+</main>
 </body>
 </html>
